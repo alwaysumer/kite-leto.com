@@ -1,0 +1,198 @@
+/* Shared styles for article pages (muine.html, muine-en.html) */
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+body {
+    font-family: 'Geist', 'Inter', Arial, sans-serif;
+    background: #020617;
+    color: #e2e8f0;
+    -webkit-font-smoothing: antialiased;
+}
+::selection { background: #67e8f9; color: #020617; }
+.page-bg { background: linear-gradient(180deg, #020617 0%, #082f49 52%, #0f172a 100%); }
+
+.glass {
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+.eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(165,243,252,0.8); }
+.chip { border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(2,6,23,0.35); padding: .375rem .75rem; }
+
+.btn-primary {
+    border-radius: 999px; background: #67e8f9; color: #020617;
+    font-weight: 600; font-size: .875rem; padding: .75rem 1.5rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform .2s ease, background .2s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); background: #a5f3fc; }
+.btn-outline {
+    border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.05);
+    color: #fff; font-weight: 500; font-size: .875rem; padding: .75rem 1.5rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform .2s ease, background .2s ease;
+}
+.btn-outline:hover { transform: translateY(-2px); background: rgba(255,255,255,0.10); }
+
+.lang-switch { display: inline-flex; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 3px; background: rgba(255,255,255,.04); }
+.lang-switch a, .lang-switch span { font-size: 11px; font-weight: 600; letter-spacing: .08em; padding: 4px 9px; border-radius: 999px; color: rgba(255,255,255,.7); }
+.lang-switch a:hover { color: #fff; }
+.lang-switch .active { background: #67e8f9; color: #020617; }
+
+/* Readable article typography */
+.prose-kite { max-width: 70ch; font-size: 1.0625rem; line-height: 1.75; color: rgba(226,232,240,0.92); }
+.prose-kite .lead { font-size: inherit; line-height: inherit; color: inherit; }
+.prose-kite h2 { margin-top: 2.6rem; font-size: clamp(1.5rem, 2.6vw, 1.875rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; color: #fff; text-wrap: balance; }
+.prose-kite p { margin-top: 1rem; }
+.prose-kite strong { color: #fff; font-weight: 600; }
+.prose-kite ul { margin-top: 1rem; display: grid; gap: .6rem; }
+.prose-kite ul li { position: relative; padding-left: 1.4rem; }
+.prose-kite ul li::before { content: ''; position: absolute; left: .2rem; top: .72em; width: 7px; height: 7px; border-radius: 999px; background: #67e8f9; }
+.prose-kite a:not(.btn-primary):not(.btn-outline) { color: #a5f3fc; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(165,243,252,.4); }
+.prose-kite figure { margin-top: 2rem; }
+.prose-kite figure img { width: 100%; max-width: 100%; border-radius: 1rem; border: 1px solid rgba(255,255,255,.12); aspect-ratio: 16 / 9; object-fit: cover; }
+.prose-kite figcaption { margin-top: .6rem; font-size: .85rem; color: #94a3b8; }
+
+.toc { margin-top: 2rem; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); border-radius: 1rem; padding: 1.1rem 1.3rem; }
+.toc-title { margin: 0 !important; font-size: .75rem; text-transform: uppercase; letter-spacing: .2em; color: rgba(165,243,252,.8); }
+.toc ol { margin-top: .6rem; padding-left: 1.2rem; list-style: decimal; display: grid; gap: .3rem; font-size: 1.0625rem; }
+.toc a { color: #e2e8f0 !important; text-decoration: none !important; }
+.toc a:hover { color: #a5f3fc !important; }
+
+.price-table { margin-top: 1.2rem; border: 1px solid rgba(255,255,255,.15); border-radius: 1rem; background: rgba(2,6,23,.35); padding: .3rem 1.1rem; }
+.price-row { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-bottom: 1px dashed rgba(255,255,255,.12); font-variant-numeric: tabular-nums; }
+.price-row:last-child { border-bottom: 0; }
+.price-row .price { font-weight: 600; color: #fff; white-space: nowrap; }
+
+.cta { margin-top: 2.6rem; border: 1px solid rgba(165,243,252,.3); border-radius: 1.5rem; padding: 1.6rem; background: linear-gradient(135deg, rgba(103,232,249,.10), rgba(255,255,255,.02)); }
+
+.faq { margin-top: 1rem; display: grid; gap: .6rem; }
+.faq details { border: 1px solid rgba(255,255,255,.15); border-radius: .9rem; background: rgba(255,255,255,.03); padding: .9rem 1.1rem; }
+.faq summary { cursor: pointer; font-weight: 500; color: #fff; font-size: 1.0625rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; color: #a5f3fc; font-size: 1.2rem; line-height: 1; }
+.faq details[open] summary::after { content: '–'; }
+.faq details p { margin-top: .6rem; font-size: 1.0625rem; }
+
+.updated { margin-top: 2rem; font-size: .85rem; color: #94a3b8; }
+
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid rgba(103,232,249,.8); outline-offset: 3px; border-radius: 6px; }
+
+/* Portrait video inside an article */
+.prose-kite figure.video-figure { display: flex; flex-direction: column; align-items: center; }
+.prose-kite figure.video-figure video { width: 100%; max-width: 420px; max-height: 80vh; border-radius: 1rem; border: 1px solid rgba(255,255,255,.12); background: #020617; object-fit: contain; }
+.prose-kite figure.video-figure figcaption { text-align: center; }
+
+/* Nha Trang: contents + video side by side at the top of the article (desktop) */
+.spot-row { display: grid; gap: 1rem; }
+.spot-row .toc { margin-top: 0; }
+.spot-video { display: none; }
+.glance-box .glance-btn { margin-top: 1.25rem; }
+@media (min-width: 1024px) {
+    .spot-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; align-items: stretch; min-height: 380px; }
+    .spot-row .toc { display: flex; flex-direction: column; padding: 1.4rem 1.5rem; border-radius: 1rem; }
+    /* spread the contents list evenly from top to bottom */
+    .spot-row .toc ol { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: .5rem; margin-top: 1rem; }
+    .spot-video { display: block; position: relative; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.15); background: #020617; }
+    .spot-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+}
+
+/* Mui Ne & Nha Trang: contents + video.
+   Mobile: the contents box and the video are two separate blocks, video below.
+   Desktop: one box, list on the left, video on the right. */
+.toc.toc-media { border: 0; background: none; padding: 0; }
+.toc-media .toc-media-list { border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); border-radius: 1rem; padding: 1.1rem 1.3rem; }
+.toc-media .toc-media-video { margin-top: 1rem; display: flex; justify-content: center; }
+.toc-media .toc-media-video video { width: 100%; max-width: 360px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 1rem; border: 1px solid rgba(255,255,255,.15); background: #020617; }
+@media (min-width: 1024px) {
+    .toc.toc-media { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr); gap: 1.5rem; align-items: stretch; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); border-radius: 1rem; padding: 1.1rem 1.3rem; }
+    .toc-media .toc-media-list { border: 0; background: none; padding: 0; border-radius: 0; display: flex; flex-direction: column; }
+    .toc-media .toc-media-list ol { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .toc-media .toc-media-video { margin-top: 0; position: relative; min-height: 300px; }
+    .toc-media .toc-media-video video { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; aspect-ratio: auto; object-fit: cover; }
+}
+
+/* Phan Rang: section text + video, same look as the contents box.
+   Mobile: text box, video below. Desktop: one box, text left, video right. */
+.media-box { margin-top: 2.6rem; }
+.media-box .media-box-text { border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); border-radius: 1rem; padding: 1.1rem 1.3rem; }
+.prose-kite .media-box h2.media-box-title { margin-top: 0; }
+.media-box .media-box-video { margin-top: 1rem; display: flex; justify-content: center; }
+.media-box .media-box-video video { width: 100%; max-width: 360px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 1rem; border: 1px solid rgba(255,255,255,.15); background: #020617; }
+@media (min-width: 1024px) {
+    .media-box { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr); gap: 1.5rem; align-items: stretch; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); border-radius: 1rem; padding: 1.1rem 1.3rem; }
+    .media-box .media-box-text { border: 0; background: none; padding: 0; border-radius: 0; }
+    .media-box .media-box-video { margin-top: 0; position: relative; min-height: 300px; }
+    .media-box .media-box-video video { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; aspect-ratio: auto; object-fit: cover; }
+}
+
+/* Mobile: videos run edge to edge with the boxes and text (same left/right line) */
+@media (max-width: 1023px) {
+    .toc-media .toc-media-video, .media-box .media-box-video { display: block; }
+    .toc-media .toc-media-video video, .media-box .media-box-video video { display: block; max-width: none; width: 100%; }
+}
+
+/* Desktop side column stretched by script (Phan Rang) */
+.glance-stretch { display: flex; flex-direction: column; }
+.glance-stretch dl { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.glance-stretch dl > * { margin-top: 0 !important; }
+.others-stretch { display: flex; flex-direction: column; }
+.others-stretch ul { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
+.others-stretch ul > * { margin-top: 0 !important; }
+
+/* Mobile: header scrolls away, tighter and even spacing between blocks */
+@media (max-width: 1023px) {
+    html { scroll-padding-top: 16px; }
+    .prose-kite > .lead:first-child { margin-top: 0; }
+    .prose-kite h2 { margin-top: 2rem; }
+    .toc { margin-top: 1.5rem; }
+    .media-box { margin-top: 2rem; }
+    .cta { margin-top: 2rem; }
+    .updated { margin-top: 1.5rem; }
+}
+
+/* Phan Rang "beginners" box.
+   Mobile: text box, video (3:4) below, then the closing paragraph.
+   Desktop: text left, video right at the same height as the text, closing paragraph full width underneath. */
+.media-box .media-box-video video { aspect-ratio: 3 / 4; }
+.media-box .media-box-after p { margin-top: 1rem; }
+@media (min-width: 1024px) {
+    .media-box { grid-template-areas: "text video" "after after"; row-gap: 0; align-content: start; }
+    .media-box .media-box-text { grid-area: text; }
+    .media-box .media-box-video { grid-area: video; position: static; min-height: 0; margin-top: .4rem; align-self: start; }
+    .media-box .media-box-video video { position: static; width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; }
+    .media-box .media-box-after { grid-area: after; }
+    .media-box { padding-bottom: .5rem; }
+    .media-box .media-box-after p { margin-top: .5rem; }
+}
+
+/* Highlighted section box (Mui Ne "beginners"), same look as the Phan Rang box, without a video */
+.note-box { margin-top: 2.6rem; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); border-radius: 1rem; padding: 1.1rem 1.3rem; }
+.prose-kite .note-box > h2:first-child { margin-top: 0; }
+@media (max-width: 1023px) { .note-box { margin-top: 2rem; } }
+
+/* Desktop: tighter gap between the lead text and the contents box;
+   compact "other spots" box so the whole side column fits in the window */
+@media (min-width: 1024px) {
+    .prose-kite .toc { margin-top: 1.25rem; }
+    aside > div:last-child { padding-top: 1rem !important; padding-bottom: 1rem; }
+    aside > div:last-child ul { margin-top: .5rem !important; }
+    aside > div:last-child ul > li { line-height: 1.35; }
+    aside > div:last-child ul > li + li { margin-top: .35rem !important; }
+}
+
+/* Desktop, short windows: contents list squeezed a little so the box ends level with "at a glance" (set by align.js) */
+@media (min-width: 1024px) {
+    .toc.toc-tight .toc-media-list ol { gap: 0; }
+    .toc.toc-tight .toc-media-list ol li { line-height: 1.4; }
+}
+
+/* Desktop: the Mui Ne "beginners" box is stretched (by align.js) to the height of the side column;
+   its list spreads out so the box looks full rather than empty at the bottom */
+@media (min-width: 1024px) {
+    .note-box { display: flex; flex-direction: column; }
+    .note-box > ul { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+}
+
+/* "Useful" page: PDF cards (whole card is a link, no underline) */
+.prose-kite a.doc-card.doc-card.doc-card { color: inherit; text-decoration: none; }
+.prose-kite a.doc-card img { border-radius: 0; }

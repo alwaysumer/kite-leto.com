@@ -1,0 +1,33 @@
+# Search engines and AI assistants are welcome to read the whole site.
+User-agent: *
+Allow: /
+
+# OpenAI (ChatGPT search and training)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+# Google Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Yandex (Alice)
+User-agent: Yandex
+Allow: /
+
+Sitemap: https://kite-leto.com/sitemap.xml
