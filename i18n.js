@@ -361,7 +361,6 @@ function applyLang(lang, onChange) {
     if (desc) desc.content = LANG === 'ru' ? META_RU.description : metaOrig.description;
     translateTree(document.body);
     document.querySelectorAll('[data-lang]').forEach(b => b.classList.toggle('active', b.dataset.lang === LANG));
-    try { localStorage.setItem('lang', LANG); } catch (e) {}
     if (onChange) onChange(LANG);
 }
 
@@ -372,16 +371,19 @@ function initLang(onChange) {
         // the home page exists as two real pages: index.html (EN) and ru.html (RU)
         const pageLang = root.lang === 'ru' ? 'ru' : 'en';
         const fromUrl = new URLSearchParams(location.search).get('lang');
-        let stored = null; try { stored = localStorage.getItem('lang'); } catch (e) {}
+        // only a language picked with the EN/RU switch is remembered; otherwise follow the browser language
+        let chosen = null; try { chosen = localStorage.getItem('langChoice'); } catch (e) {}
         const bot = /bot|crawl|spider|slurp|yandex|google|bing|lighthouse/i.test(navigator.userAgent);
+        const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']);
+        const browser = (langs[0] || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
         let want = null;
         if (fromUrl === 'ru' || fromUrl === 'en') want = fromUrl;
-        else if (pageLang === 'en' && !bot) want = stored || ((navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : null);
+        else if (!bot) want = (chosen === 'ru' || chosen === 'en') ? chosen : browser;
         if (want && want !== pageLang) { location.replace(home[want] + location.hash); return; }
         applyLang(pageLang, onChange);
         document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => {
             const l = b.dataset.lang;
-            try { localStorage.setItem('lang', l); } catch (e) {}
+            try { localStorage.setItem('langChoice', l); } catch (e) {}
             if (l !== pageLang) location.href = home[l] + location.hash;
         }));
         return;
